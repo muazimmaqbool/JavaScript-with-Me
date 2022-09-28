@@ -10,7 +10,7 @@ A) Everything in Javascript happens inside an Execution Context"
 		So, its  like an environment in which all these variables and functions are stored as key & value pairs 
 
       2)Code  
-	In code component , code is executed online at a time
+	In code component , code is executed one line at a time
 	Code component is also known as “Thread of Execution”
 
 
