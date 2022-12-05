@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><title>Async/Await in JS</title>
+    </head>
+    <!--
+        study from: https://www.w3schools.com/js/js_async.asp
+        https://www.youtube.com/watch?v=bLre6Uf4Op0&list=PLu0W_9lII9ahR1blWXxgSlL4y9iQBnLpR&index=59
+    -->
+    <body>
+        <!--
+        -> async and await make promises easier to write
+        -> Any function can be made async by placing async keyword before it:
+                     async function name(){ 
+                        return 5;
+                     }
+                     //now we can do something like this: name().then(alert);
+        -> async makes a function return a promise. I.e: The keyword async before a function makes the function return a promise:
+                        Example:
+                                async function myFunction() {
+                                return "Hello";
+                                }
+                                Is the same as:
+
+                                function myFunction() {
+                                return Promise.resolve("Hello");
+                                }
+            
+        > async function always a returns a promise, other values are wrapped in a promise automatically
+        ->await makes a function wait for a Promise(await works only inside async functions)
+        i.e we can make any function async and then inside it we can await a promise
+        
+        -> async ansures that the function returns a promise and wraps non-promises in it
+        -->
+        <script>
+            //example
+            async function name(){
+                return 5;
+            }
+
+            // name().then((x)=>{
+            //     alert(x);  // o/p:5
+            // });
+            // or 
+            name().then(alert); // o/p:5
+            // or
+            // name().then(function name(x){
+            //     alert(x);// o/p:5
+            // });
+
+            //if you remove async from function , name().then won't work it will show error name().then is not a function
+            // so, async asures that function returns a promise
+            
+            //example 2
+            function display(item){
+                console.log(item);
+            }
+            async function product(){
+                return "Keyboard";
+            }
+            product().then(
+                function(value){display(value);},
+                function(error){display(error);}
+                //Or simpler, since you expect a normal value (a normal response, not an error):
+                // use only function(value){display(value);} and not : function(error){display(error);}
+            );
+        </script>
+    </body>
+</html>

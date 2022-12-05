@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><title>Async/Await in JS</title>
+    </head>
+    <!--
+        https://www.youtube.com/watch?v=bLre6Uf4Op0&list=PLu0W_9lII9ahR1blWXxgSlL4y9iQBnLpR&index=59
+        from 7:30
+
+        see previous program 38
+    -->
+    <body>
+
+        <script>
+            //example getting temperature
+            async function temp(){
+                let soporeWeather=new Promise((resolve,reject)=>{
+                    setTimeout(()=>{
+                        resolve("13 Degree");
+                    },2000);
+                });
+                let delhiWeather=new Promise((resolve,reject)=>{
+                    setTimeout(()=>{
+                        resolve("28 Degree");
+                    },6000);
+                });
+                console.log(soporeWeather.then());
+                console.log(delhiWeather.then());
+                //or
+                // soporeWeather.then(alert);
+                // delhiWeather.then(alert)    
+            }
+            console.log("Temperaure Update!");
+            temp();
+
+    //watch at 9:00
+    //but this can be solved in easy way by tkaing both weather values in an variable also using Await
+            
+            //using Await
+            async function temperature(){
+                let soporeWeather=new Promise((resolve,reject)=>{
+                    setTimeout(()=>{
+                        resolve("13 Degree");
+                    },4000);
+                });
+                let delhiWeather=new Promise((resolve,reject)=>{
+                    setTimeout(()=>{
+                        resolve("28 Degree");
+                    },8000);
+                });
+                console.log("Getting Sopore Weather please wait!");
+                let soporeW=await soporeWeather
+                console.log("Sopore Weather: "+soporeW);
+
+                console.log("Getting Delhi Weather please wait!");
+                let delhiW=await delhiWeather
+                console.log("Delhi Weather: "+delhiW);
+                return[soporeW,delhiW]
+                // it will stop/wait until it gets soporeWeather and only then it will move to delhiWeather
+                // await makes it wait/stop until the promise is fullfilled 
+                //await stops or makes function execution to wait for some time
+                
+                //The keyword await before a function makes the function wait for a promise:
+                         //let value = await promise;   
+
+                //watch at 14:00 important
+                 
+            }
+            console.log("Temperature Update using Await!");
+            console.log(temperature()); // or temperature(); 
+            //or
+            // temperature().then((value)=>{
+            //     console.log(value);
+            // })
+            //or
+            //let a=temperature();
+            // a.then((value)=>{
+            //     console.log(value);
+            // })
+
+            
+            
+        </script>
+    </body>
+</html>

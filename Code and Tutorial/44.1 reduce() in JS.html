@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><title>Example of reduce() in JS</title>
+    </head>
+    <body>
+        <!--See previous code 44 
+        -->
+        <script>
+            const arr=[5,4,2,8,7,6]; 
+            //find max inside arr
+            //without reduce() function
+            function MaxValue(arr){
+                let max=0; 
+                for(var i=0;i<arr.length;i++){
+                    if(arr[i]>max){ //if arr[i] i.e current element is greate then max then remove max's value with arr[i]
+                        max=arr[i];
+                    }
+                }
+                return max;
+            }
+           console.log(MaxValue(arr)) // o/p: 8
+           //with reduce() function(watch at 21:25)
+           const output=arr.reduce(function(max,currElement){ 
+                //we can use any name of accumulator and also for curr
+                if(currElement > max){ //i.e if current value is greate then max value/acc the max becomes currElement  
+                    max=currElement;
+                }
+                return max;
+           },0);
+           console.log(output); // o/p: 8
+
+           //example 2: reduce() is used to transform an array of strings into a single object that shows how many times each string appears in the array.
+                     //Notice this call to reduce passes an empty object {} as the initialValue parameter. This will be used as the initial value of the accumulator (the first argument) passed to the callback function.
+           const items=["Cpu","Mouse","Keyboard","Monitor","Cpu","Mouse","Cpu","Pendrive","Keyboard"];
+           const itemsCount=items.reduce(function(product,Item){
+                if(!product[Item]){ //It translates as 'if b(product[Item]) not true'. The ! operator returns true when passed false, and false when passed true.
+                    product[Item]=1;
+                }
+                else{
+                    product[Item]++;
+                }
+                return product;
+           },{});
+           console.log(itemsCount);
+            
+            
+        </script>
+    </body>
+</html>
