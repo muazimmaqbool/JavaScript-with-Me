@@ -16,8 +16,9 @@ A) Everything in Javascript happens inside an Execution Context"
 
 B) Javascript is a synchronous single-threaded language:
 
-	Single threaded means Javascript can execute “one command at a time” and synchronous single-thread means javascript can execute “one command at a time & in a specific order .”
-	i.e it can only go to the next line once the currently line has been finish executing
+	Single threaded means Javascript can execute “one command at a time” and synchronous single-thread means 
+        javascript can execute “one command at a time & in a specific order .”
+	i.e it can only go to the next line once the current line has been finish executing
 
 
 

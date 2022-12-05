@@ -1,6 +1,6 @@
    DOM manipulation JavaScript
 
- Document Object Model (DOM) 
+Document Object Model (DOM) 
 What is DOM manipulation JavaScript?
 DOM manipulation is the interaction of the JavaScript DOM API to modify or change the HTML document. With DOM manipulation, you can create, modify, style, or delete elements without a refresh. It also promotes user interactivity with browsers. You can use different programming languages to manipulate the DOM.
 With the HTML DOM, JavaScript can access and change all the elements of an HTML document.
